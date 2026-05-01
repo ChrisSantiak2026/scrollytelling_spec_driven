@@ -1,0 +1,28 @@
+/* src/components/ui/Button.module.css */
+.button {
+  background: rgba(34, 211, 238, 0.05);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background: var(--accent);
+  color: var(--page-background);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+/* Decorative 'Execution' Arrow */
+.button::after {
+  content: "→";
+  font-weight: bold;
+}

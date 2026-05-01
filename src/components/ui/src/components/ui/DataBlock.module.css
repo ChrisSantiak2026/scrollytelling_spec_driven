@@ -1,0 +1,21 @@
+/* src/components/ui/DataBlock.module.css */
+.container {
+  background: #0a0f1d; /* Slightly darker than page bg */
+  border-left: 3px solid var(--accent);
+  padding: 16px;
+  margin: 24px 0;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: var(--page-background);
+  padding: 0 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

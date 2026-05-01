@@ -5,7 +5,7 @@ Single source of truth for phase state. Update on every phase completion.
 | Phase | Title | Status | Notes |
 |---|---|---|---|
 | 00 | Scaffold | ✅ done | Next.js 16 + static export config + Actions workflow stub + assets copied |
-| 01 | Design system foundation | ⏳ pending | — |
+| 01 | Design system foundation |🔨 in progress | — |
 | 02 | Content pipeline | ⏳ pending | — |
 | 03 | Standard layout + markdown renderer | ⏳ pending | — |
 | 04 | Motion primitives | ⏳ pending | — |

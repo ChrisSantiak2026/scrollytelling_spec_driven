@@ -9,7 +9,7 @@ content/
 ├── home.md                        # served at /
 └── pages/
     ├── getting-started.md         # → /getting-started
-    ├── what-is-scrollytelling.md  # → /what-is-scrollytelling
+    ├── Chris-Santiak-Portfolio.md  # → /Chris-Santiak-Portfolio
     └── sticky-slides.md           # → /sticky-slides
 ```
 
@@ -24,12 +24,12 @@ Every file begins with a YAML block validated by Zod at build time.
 
 ```yaml
 ---
-title: "What is scrollytelling?"
+title: "Chris Santiak Prortfolio"
 layout: "standard"             # "standard" | "presentation"
 heroImage: "/images/media/modules/generated/era-1-precursors.webp"  # optional
-summary: "A short paragraph used in cards and meta description."    # optional
+summary: "This is an aspirational portfolio on what i intend to be in my future career as an AI engineer."    # optional
 seo:
-  title: "What is scrollytelling? | Scrolly"
+  title: "What can I offer to you? | Scrolly"
   description: "Long-form narrative web design techniques."
   openGraphImage: "/images/og/what-is.png"
 order: 10                       # optional; sort key for listings

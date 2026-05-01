@@ -1,22 +1,39 @@
+/* src/app/globals.css */
 :root {
-  --background: #fffdf9;
-  --foreground: #1f1a16;
+  /* Colors - Research Lab Palette */
+  --page-background: #0f172a; /* Deep slate-blue */
+  --surface: #1e293b;        /* Muted blue secondary */
+  --surface-ink: #f8fafc;
+  --text: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #22d3ee;        /* Light cyan primary */
+  --accent-strong: #0891b2;
+  --rule: rgba(34, 211, 238, 0.2);
+
+  /* Typography */
+  --font-sans: var(--font-public-sans), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  /* Borders & Shadows - 'Case File' Aesthetic */
+  --border-case: 1px solid var(--rule);
+  --shadow-case: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --radius-case: 2px; /* Sharp, professional corners */
+
+  /* Spacing */
+  --baseline: 24px;
+  --space-1x: var(--baseline);
+  --space-2x: calc(var(--baseline) * 2);
 }
 
 html, body {
-  min-height: 100%;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: var(--page-background);
+  color: var(--text);
+  font-family: var(--font-sans);
   margin: 0;
+  padding: 0;
 }
 
-@import "tailwindcss";
-
-:root {
-  --background: #fffdf9;
-  --foreground: #1f1a16;
+pre, code, .technical-callout {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
 }

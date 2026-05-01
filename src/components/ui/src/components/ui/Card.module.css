@@ -1,0 +1,38 @@
+/* src/components/ui/Card.module.css */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: var(--space-1x);
+  border-radius: 2px;
+  box-shadow: var(--shadow-case);
+  position: relative;
+  transition: border-color 0.3s var(--ease-brand);
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+/* Technical Header for Metadata */
+.card::before {
+  content: "REF_ID: AF_ENG_001 // STATUS: VERIFIED";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+
+/* Subtle corner accent */
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, transparent 50%, var(--accent) 50%);
+}
