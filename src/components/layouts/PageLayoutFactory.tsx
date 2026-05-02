@@ -1,12 +1,13 @@
-import type { PageData } from "@/lib/content/repository";
-import { MarkdownRenderer } from "@/components/markdown/MarkdownRenderer";
-import { PresentationLayout } from "./PresentationLayout";
 import { StandardLayout } from "./StandardLayout";
+import { PresentationLayout } from "./PresentationLayout"; // Import the real layout
+import type { PageData } from "@/lib/content/repository";
 
 export function PageLayoutFactory({ page }: { page: PageData }) {
-  if (page.frontmatter.layout === "presentation") {
-    return <PresentationLayout page={page} />;
+  switch (page.frontmatter.layout) {
+    case "presentation":
+      return <PresentationLayout page={page} />;
+    case "standard":
+    default:
+      return <StandardLayout page={page} />;
   }
-
-  return <StandardLayout page={page} />;
 }

@@ -1,1 +1,26 @@
-.root { }
+/* src/components/layouts/PresentationLayout.module.css */
+.root {
+  background: var(--page-background); /* Deep slate-blue */
+  min-height: 100vh;
+  position: relative;
+}
+
+/* The Final Narrative Anchor */
+.footerGate {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--rule);
+  background: var(--surface);
+  text-align: center;
+}
+
+.metadata {
+  font-family: var(--font-mono); /* Technical data font */
+  color: var(--accent); /* Calm Cyan */
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+}

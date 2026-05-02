@@ -1,24 +1,17 @@
-export function StatGrid({ source }: { source: string }) {
-  const rows = source
-    .trim()
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .filter((line) => !/^[-|\s]+$/.test(line))
-    .map((line) => line.split("|").map((cell) => cell.trim()));
+/* src/components/visualization/StatGrid.tsx */
+import styles from "./StatGrid.module.css";
 
-  if (!rows.length || rows.some((row) => row.length < 2)) {
-    return <div className="rounded-xl border border-rose-300 bg-rose-50 p-4 text-sm text-rose-900">StatGrid parse error</div>;
-  }
+export function StatGrid({ source }: { source: string }) {
+  const rows = source.split("\n").map(line => line.split("|").map(s => s.trim()));
 
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {rows.map(([value, label], index) => (
-        <li key={index} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-          <div className="text-3xl font-semibold tracking-tight text-slate-900">{value}</div>
-          <div className="mt-1 text-sm text-slate-600">{label}</div>
-        </li>
+    <div className={styles.container}>
+      {rows.map(([value, label], i) => (
+        <div key={i} className={styles.statCard}>
+          <div className={styles.value}>{value}</div>
+          <div className={styles.label}>{label}</div>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }

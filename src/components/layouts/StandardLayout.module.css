@@ -1,1 +1,6 @@
-.root { }
+.root { min-height: 100vh; padding-bottom: var(--space-4x); }
+.container { max-width: 800px; margin: 0 auto; padding: 0 var(--space-1x); }
+.hero { padding: var(--space-4x) 0; border-bottom: 1px solid var(--rule); margin-bottom: var(--space-4x); }
+.metadata { font-family: var(--font-mono); color: var(--accent); font-size: 0.8rem; margin-bottom: 8px; }
+.title { font-size: 3rem; margin: 0; }
+.summary { font-size: 1.2rem; color: var(--text-muted); margin-top: 16px; }

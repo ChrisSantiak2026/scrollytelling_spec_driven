@@ -50,7 +50,7 @@ Study but do **not** copy blindly — the reference has a `sed` rewrite step tha
 - `eslint.config.mjs` — confirm rules; no domain-specific ignores
 
 ## Exit checks
-- [ ] All four workflow jobs green on a push to `main`
+- [  ] All four workflow jobs green on a push to `main`
 - [ ] Deployed site fully functional, no console errors, no 404s
 - [ ] Lighthouse mobile: Perf ≥ 90, A11y ≥ 95
 - [ ] Playwright report uploaded as artifact (manually force a failing run to confirm, then revert)

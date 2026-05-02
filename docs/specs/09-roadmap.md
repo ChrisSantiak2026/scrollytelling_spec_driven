@@ -9,7 +9,7 @@ Delivery is sliced so that each milestone produces a **shippable static site**. 
 - GitHub Actions workflow stub at `.github/workflows/deploy.yml`
 - Assets copied from reference project into `public/images/`
 
-## Milestone 1 — Design system foundation
+## Milestone 1 — Design system foundation (✅ done)
 
 Ref: [05-design-system.md](./05-design-system.md)
 
@@ -21,7 +21,7 @@ Ref: [05-design-system.md](./05-design-system.md)
 
 **Exit criteria:** `npm run build` green; home page shows branded typography; no Tailwind classes remain.
 
-## Milestone 2 — Content pipeline
+## Milestone 2 — Content pipeline (✅ done)
 
 Ref: [02-content-model.md](./02-content-model.md)
 
@@ -36,7 +36,7 @@ Ref: [02-content-model.md](./02-content-model.md)
 
 **Exit criteria:** `/` and `/getting-started` both build and render.
 
-## Milestone 3 — Standard layout + markdown renderer
+## Milestone 3 — Standard layout + markdown renderer (✅ done)
 
 Ref: [04-layouts.md](./04-layouts.md), [06-visualizations.md](./06-visualizations.md)
 
@@ -47,7 +47,7 @@ Ref: [04-layouts.md](./04-layouts.md), [06-visualizations.md](./06-visualization
 
 **Exit criteria:** a standard page with three H2 sections renders with proper typography and a generated ToC.
 
-## Milestone 4 — Motion primitives
+## Milestone 4 — Motion primitives (✅ done)
 
 Ref: [03-motion-system.md](./03-motion-system.md)
 
@@ -61,7 +61,7 @@ Ref: [03-motion-system.md](./03-motion-system.md)
 
 **Exit criteria:** scrolling down a standard page shows section fade-ins; reduced-motion disables transforms.
 
-## Milestone 5 — Presentation layout
+## Milestone 5 — Presentation layout (✅ done)
 
 Ref: [04-layouts.md](./04-layouts.md)
 
@@ -73,9 +73,9 @@ Ref: [04-layouts.md](./04-layouts.md)
 
 **Exit criteria:** `/sticky-slides` runs as a scroll-linked deck with progress bar and keyboard nav.
 
-## Milestone 6 — Visualizations
+## Milestone 6 — Visualizations (✅ done)
 
-Ref: [06-visualizations.md](./06-visualizations.md)
+Ref: [06-visualizations.md](./06-visualizations.md) 
 
 - Code-block dispatcher in `MarkdownRenderer`
 - `StatGrid`, `ScrollDemo`, `Timeline`, `ProgressBar`, `Mermaid`, `CodeSample`
@@ -84,7 +84,7 @@ Ref: [06-visualizations.md](./06-visualizations.md)
 
 **Exit criteria:** every viz tag renders; bad input produces visible error cards.
 
-## Milestone 7 — CI + deploy
+## Milestone 7 — CI + deploy (✅ done)
 
 Ref: [08-deployment.md](./08-deployment.md)
 

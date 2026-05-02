@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-1x);
+  margin: var(--space-2x) 0;
+}
+
+.statCard {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: var(--space-1x);
+  border-left: 3px solid var(--accent); /* Design Token Alignment */
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}

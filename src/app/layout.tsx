@@ -13,7 +13,11 @@ const mono = JetBrains_Mono({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html 
+    lang="en" 
+    className={`${sans.variable} ${mono.variable}`}
+    suppressHydrationWarning // AUDIT FIX: Prevents extensions from breaking hydration
+    >
       <body>{children}</body>
     </html>
   );
