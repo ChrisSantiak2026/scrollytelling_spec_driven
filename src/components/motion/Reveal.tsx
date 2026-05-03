@@ -72,9 +72,30 @@ function SlideReveal({
   const y = useTransform(smooth, [start, end], [yDist, 0]);
 
   return (
-    <motion.div style={{ opacity, x, y }}>
-      {children}
-    </motion.div>
+    // Inside your Reveal component's motion.div
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={{
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    }
+  }}
+>
+  {children}
+  {/* The Scanline: A momentary flash of Cyan across the appearing element */}
+  <motion.div 
+    className="scanline"
+    variants={{
+      hidden: { left: "-100%" },
+      visible: { left: "100%", transition: { duration: 1.2, delay: 0.2 } }
+    }}
+  />
+</motion.div>
   );
 }
 

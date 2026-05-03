@@ -1,5 +1,5 @@
 ---
-title: "Scrolly"
+title: "Chris Santiak"
 layout: "standard"
 summary: "A teaching site about scrollytelling on the web, built with a spec-driven workflow."
 ---
