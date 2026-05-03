@@ -19,3 +19,17 @@ It shows how to build long-form scrollytelling pages with Markdown content, stat
 - A standard layout for reading pages
 - A presentation layout for slide-style stories
 - Build-time validation and static deployment
+
+---
+title: "The AI-Forward Engineer"
+layout: "standard"
+---
+
+# Architecture & Intent
+
+This archive serves as a repository for high-stakes technical logic and scrollytelling experiments. By blending **Spec-Driven Development** with immersive digital presentation, we move beyond static documentation into lived technical narratives.
+
+## Primary Focus Areas
+* **Automation Rigor**: Building CI/CD pipelines that audit themselves.
+* **Motion Semantics**: Using scroll progress to explain complex systems.
+* **Data Transparency**: Visualizing audit trails in real-time.
