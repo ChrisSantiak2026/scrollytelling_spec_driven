@@ -1,6 +1,8 @@
+/* src/lib/content/repository.ts */
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+// AUDIT FIX: PageData is now defined locally to resolve the 'no exported member' error.
 import { PageFrontmatterSchema, type PageFrontmatter } from "./schema";
 
 export interface PageData {
@@ -13,7 +15,11 @@ export class ContentRepository {
   private baseDir: string;
 
   constructor(baseDir: string) {
-    this.baseDir = path.join(process.cwd(), baseDir);
+    /** * AUDIT FIX: Use path.resolve instead of path.join. 
+     * path.resolve correctly treats baseDir as an absolute path if it starts with '/', 
+     * preventing the ENOENT error in CI environments.
+     */
+    this.baseDir = path.resolve(process.cwd(), baseDir);
   }
 
   async getPageBySlug(slug: string): Promise<PageData> {
@@ -33,8 +39,5 @@ export class ContentRepository {
 }
 
 // SPEC-COMPLIANT SINGLETONS
-const pagesRepo = new ContentRepository("content/pages");
-const homeRepo = new ContentRepository("content");
-
-export function getPagesRepo() { return pagesRepo; }
-export function getHomeRepo() { return homeRepo; }
+export const getPagesRepo = () => new ContentRepository("content/pages");
+export const getHomeRepo = () => new ContentRepository("content");
