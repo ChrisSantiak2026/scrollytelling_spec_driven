@@ -1,25 +1,46 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import os from "node:os";
+/* tests/unit/repository.test.ts */
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { ContentRepository } from "../../src/lib/content/repository";
+import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
-import { ContentRepository } from "@/lib/content/repository";
+import os from "node:os";
 
 describe("ContentRepository", () => {
-  it("loads markdown content and frontmatter", async () => {
-    const dir = await fsTempDir();
-    await writeFile(
-      path.join(dir, "sample.md"),
-      `---\ntitle: Sample\nlayout: standard\n---\n\nHello`,
-    );
+  let tempDir: string;
+  let repo: ContentRepository;
 
-    const repo = new ContentRepository(dir);
-    const page = await repo.getPageBySlug("sample");
-    expect(page.frontmatter.title).toBe("Sample");
-    expect(page.content.trim()).toBe("Hello");
+  beforeEach(() => {
+    // Create a unique temporary directory for each test run
+    tempDir = path.join(os.tmpdir(), `scrolly-test-${Date.now()}`);
+    fs.mkdirSync(tempDir, { recursive: true });
+    
+    // Initialize repo targeting the temp directory
+    repo = new ContentRepository(tempDir);
+  });
+
+  afterEach(() => {
+    // Clean up to prevent storage bloat in CI
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  });
+
+  it("loads markdown content and frontmatter correctly", async () => {
+    const sampleContent = `---
+title: "Technical Audit"
+layout: "presentation"
+---
+# Content Header`;
+
+    const filePath = path.join(tempDir, "sample.md");
+    fs.writeFileSync(filePath, sampleContent, "utf8");
+
+    const result = await repo.getPageBySlug("sample");
+
+    expect(result.slug).toBe("sample");
+    expect(result.frontmatter.title).toBe("Technical Audit");
+    expect(result.content.trim()).toBe("# Content Header");
+  });
+
+  it("throws error when file is missing", async () => {
+    await expect(repo.getPageBySlug("non-existent")).rejects.toThrow();
   });
 });
-
-async function fsTempDir() {
-  const dir = await mkdir(path.join(os.tmpdir(), `scrolly-${Date.now()}`), { recursive: true });
-  return dir;
-}
