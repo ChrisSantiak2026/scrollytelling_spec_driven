@@ -6,22 +6,23 @@ export interface SlideFragment {
   objectPosition?: string;
 }
 
+/**
+ * Splits markdown into slides and parses scrollytelling directives.
+ */
 export function splitMarkdownIntoSlides(content: string): SlideFragment[] {
-  // AUDIT FIX: Support both Windows and Linux line endings for the slide separator.
+  // AUDIT FIX: Supports both Windows and Linux line endings for slide separation.
   const rawFragments = content.split(/\r?\n---\r?\n/);
 
   return rawFragments.map((fragment): SlideFragment => {
     const trimmed = fragment.trim();
     
-    /**
-     * AUDIT FIX: Refined regex to allow for leading whitespace and flexible position capture.
-     * Captures: ![kind position](url)
-     */
-    const directiveMatch = trimmed.match(/^!\[(bg|split|split-reverse)(?:\s+([^\]]+))?\]\(([^)]+)\)/);
+    // AUDIT FIX: Refined regex to handle leading whitespace and complex positions like '50% 65%'.
+    const directiveMatch = trimmed.match(/^\s*!\[(bg|split|split-reverse)(?:\s+([^\]]+))?\]\(([^)]+)\)/);
 
     if (directiveMatch) {
       const [fullMatch, kind, position, url] = directiveMatch;
       return {
+        // Remove only the specific directive phrasing from the output markdown.
         markdown: trimmed.replace(fullMatch, "").trim(),
         kind: kind as SlideFragment["kind"],
         imageUrl: url,

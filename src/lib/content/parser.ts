@@ -1,34 +1,41 @@
-export type SlideKind = "plain" | "bg" | "split" | "split-reverse";
+/* src/lib/content/parser.ts */
 
+/**
+ * AUDIT FIX: Explicitly defined 'objectPosition' to resolve Vitest type errors.
+ */
 export interface ParsedSlide {
-  kind: SlideKind;
-  imageUrl?: string;
   markdown: string;
+  kind: "plain" | "bg" | "split" | "split-reverse";
+  imageUrl?: string;
+  objectPosition?: string; // This was the missing property
 }
 
-export function splitMarkdownIntoSlides(body: string): ParsedSlide[] {
-  // Split by the horizontal rule separator
-  const rawSlides = body.split(/\n---\n/);
+/**
+ * Splits markdown into slides based on horizontal rules.
+ */
+export function splitMarkdownIntoSlides(content: string): ParsedSlide[] {
+  // Handles both Windows and Linux line endings
+  const rawFragments = content.split(/\r?\n---\r?\n/);
 
-  return rawSlides.map((raw) => {
-    let kind: SlideKind = "plain";
-    let imageUrl: string | undefined;
-
-    // Detect image directives like ![bg](/path) or ![split](/path)
-    const imageMatch = raw.match(/!\[(bg|split|split-reverse)\]\((.*?)\)/);
+  return rawFragments.map((fragment): ParsedSlide => {
+    const trimmed = fragment.trim();
     
-    if (imageMatch) {
-      /* AUDIT FIX: Destructure the match array to extract 
-         the captured strings instead of the whole object.
-      */
-      const [, capturedKind, capturedUrl] = imageMatch;
-      kind = capturedKind as SlideKind;
-      imageUrl = capturedUrl;
+    // Captures: ![kind position](url)
+    const directiveMatch = trimmed.match(/^\s*!\[(bg|split|split-reverse)(?:\s+([^\]]+))?\]\(([^)]+)\)/);
+
+    if (directiveMatch) {
+      const [fullMatch, kind, position, url] = directiveMatch;
+      return {
+        markdown: trimmed.replace(fullMatch, "").trim(),
+        kind: kind as ParsedSlide["kind"],
+        imageUrl: url,
+        objectPosition: position?.trim() || "center",
+      };
     }
 
-    // Remove the directive from the final markdown text
-    const markdown = raw.replace(/!\[(bg|split|split-reverse)\]\(.*?\)/, "").trim();
-
-    return { kind, imageUrl, markdown };
+    return {
+      markdown: trimmed,
+      kind: "plain",
+    };
   });
-} 
+}
