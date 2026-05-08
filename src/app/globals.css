@@ -42,3 +42,25 @@
   position: relative;
   z-index: 10;
 }
+
+.ui-brackets {
+  position: fixed;
+  inset: var(--space-1x);
+  pointer-events: none;
+  z-index: 50; /* Above all content */
+  border: 1px solid transparent;
+}
+
+/* Creating the L-shaped corner indicators */
+.ui-brackets::before, .ui-brackets::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--accent); /* Calm Cyan */
+  border-style: solid;
+  opacity: 0.3;
+}
+
+.ui-brackets::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.ui-brackets::after { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
