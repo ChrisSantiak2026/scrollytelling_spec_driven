@@ -10,8 +10,8 @@ Single source of truth for phase state. Update on every phase completion.
 | 03 | Standard layout + markdown renderer | ✅ done| Verified the routes generated successfully during production build. |
 | 04 | Motion primitives | ✅ done | Scrollytelling engine implemented via framer-motion with sticky-scroll triggers. |
 | 05 | Presentation layout | ✅ done | Professional 'Research Lab' layout verified with responsive navigation. |
-| 06 | Visualizations | ✅ done  | — |
-| 07 | CI + deploy hardening | ⏳ pending | — |
+| 06 | Visualizations | ✅ done  | Had introduced and executed the proper background mechaines for eye catching visuals |
+| 07 | CI + deploy hardening | 🔨 current | Maintaining and refining the execution of code for each pag |
 | 08 | Content authoring pass | ⏳ pending | — |
 
 ## Legend

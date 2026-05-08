@@ -1,4 +1,5 @@
 import { Public_Sans, JetBrains_Mono } from "next/font/google";
+import { Atmosphere } from "@/components/visualization/Atmosphere"; // Import the agent
 import "./globals.css";
 
 const sans = Public_Sans({ 
@@ -14,11 +15,19 @@ const mono = JetBrains_Mono({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html 
-    lang="en" 
-    className={`${sans.variable} ${mono.variable}`}
-    suppressHydrationWarning // AUDIT FIX: Prevents extensions from breaking hydration
+      lang="en" 
+      className={`${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning 
     >
-      <body>{children}</body>
+      <body className="bg-slate-950 text-slate-100 antialiased">
+        {/* Global Atmospheric Layers */}
+        <Atmosphere />
+        
+        {/* Main Content Stage */}
+        <main className="main-stage">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

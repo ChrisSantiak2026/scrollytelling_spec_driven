@@ -1,39 +1,44 @@
 /* src/app/globals.css */
+
 :root {
-  /* Colors - Research Lab Palette */
-  --page-background: #0f172a; /* Deep slate-blue */
-  --surface: #1e293b;        /* Muted blue secondary */
-  --surface-ink: #f8fafc;
-  --text: #cbd5e1;
-  --text-muted: #94a3b8;
-  --accent: #22d3ee;        /* Light cyan primary */
-  --accent-strong: #0891b2;
-  --rule: rgba(34, 211, 238, 0.2);
-
-  /* Typography */
-  --font-sans: var(--font-public-sans), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), monospace;
-
-  /* Borders & Shadows - 'Case File' Aesthetic */
-  --border-case: 1px solid var(--rule);
-  --shadow-case: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --radius-case: 2px; /* Sharp, professional corners */
-
-  /* Spacing */
-  --baseline: 24px;
-  --space-1x: var(--baseline);
-  --space-2x: calc(var(--baseline) * 2);
+  /* ... your existing variables */
+  --grid-major: rgba(34, 211, 238, 0.08); /* Calm Cyan */
+  --grid-minor: rgba(34, 211, 238, 0.03);
 }
 
-html, body {
-  background: var(--page-background);
-  color: var(--text);
-  font-family: var(--font-sans);
-  margin: 0;
-  padding: 0;
+/* AUDIT FIX: Replaces .app-overlay with professional blueprint logic */
+.blueprint-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  
+  /* Overlapping grids for depth: 40px major and 10px minor */
+  background-image: 
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 10px 10px, 10px 10px;
+  
+  /* Soft center-focus mask */
+  mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
+  opacity: 0.6;
 }
 
-pre, code, .technical-callout {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
+/* Atmospheric Noise (Film Grain) for texture */
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(170%) brightness(1000%);
+  opacity: 0.03;
+}
+
+/* Container to ensure content sits above the atmosphere */
+.main-stage {
+  position: relative;
+  z-index: 10;
 }
