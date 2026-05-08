@@ -52,9 +52,16 @@ body {
 .main-stage {
   position: relative;
   z-index: 10;
-  max-width: 65ch;
+  /* AUDIT FIX: Widened from 65ch to 1100px to 'spread out' content. */
+  max-width: 1100px; 
   margin: 0 auto;
-  padding: 4rem var(--space-1x);
+  padding: 4rem 5vw; /* Uses viewport-relative padding for better spread */
+}
+
+/* Ensure the scrollytelling text remains readable while spread out */
+.paragraph {
+  max-width: 80ch; /* Keeps text lines from becoming too long to read */
+  margin-bottom: 2rem;
 }
 
 /* AI Vision Framing Brackets */
