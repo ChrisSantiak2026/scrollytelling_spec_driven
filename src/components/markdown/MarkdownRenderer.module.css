@@ -1,0 +1,41 @@
+/* src/components/markdown/MarkdownRenderer.module.css */
+.paragraph {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.list {
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+  list-style: none; /* Custom markers */
+}
+
+.listItem {
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.listItem::before {
+  content: "»"; /* High-fidelity indicator */
+  position: absolute;
+  left: -1.2rem;
+  color: var(--accent);
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}

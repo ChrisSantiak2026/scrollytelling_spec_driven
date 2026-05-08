@@ -1,3 +1,4 @@
+/* src/components/markdown/MarkdownRenderer.tsx */
 import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -5,11 +6,8 @@ import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StatGrid } from "@/components/visualization/StatGrid";
 import { ScrollDemo } from "@/components/visualization/ScrollDemo";
+import styles from "./MarkdownRenderer.module.css"; // AUDIT FIX: Import themed styles
 
-/**
- * AUDIT FIX: Explicit interface to resolve 'Unexpected any' linting errors.
- * This ensures the MDX component map is strictly typed for React 19.
- */
 interface MDXProps {
   children?: React.ReactNode;
   className?: string;
@@ -19,20 +17,21 @@ interface MDXProps {
 const components = {
   h1: (props: MDXProps) => <Reveal direction="none"><Heading level={1} {...props} /></Reveal>,
   h2: (props: MDXProps) => <Reveal direction="up"><Heading level={2} {...props} /></Reveal>,
-  // ... other components
-  // Code-block dispatcher for visualizations
+  // AUDIT FIX: Styled overrides for standard Markdown elements
+  p: (props: MDXProps) => <p className={styles.paragraph} {...props} />,
+  ul: (props: MDXProps) => <ul className={styles.list} {...props} />,
+  li: (props: MDXProps) => <li className={styles.listItem} {...props} />,
+  a: (props: MDXProps) => <a className={styles.link} {...props} />,
+  hr: () => <hr className={styles.rule} />,
+  
   pre: ({ children }: MDXProps) => <>{children}</>, 
   code: ({ className, children }: MDXProps) => {
     const lang = className?.replace("language-", "");
     const source = String(children || "").trim();
-
     switch (lang) {
-      case "stat-grid":
-        return <StatGrid source={source} />;
-      case "scroll-demo":
-        return <ScrollDemo source={source} />;
-      default:
-        return <code className={className}>{children}</code>;
+      case "stat-grid": return <StatGrid source={source} />;
+      case "scroll-demo": return <ScrollDemo source={source} />;
+      default: return <code className={className}>{children}</code>;
     }
   },
 };
