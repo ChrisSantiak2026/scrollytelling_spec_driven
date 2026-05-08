@@ -8,13 +8,17 @@ export interface HeadingProps {
   className?: string;
 }
 
+/* src/components/ui/Heading.tsx */
 export function Heading({ level, children, className = "" }: HeadingProps) {
-  // AUDIT FIX: Explicitly cast to React.ElementType
+  // AUDIT FIX: Explicitly cast to ElementType to satisfy the JSX parser
   const Tag = `h${level}` as React.ElementType;
-  
-  return (
-    <Tag className={`${styles[`h${level}`]} ${className}`}>
-      {children}
-    </Tag>
-  );
+  return <Tag className={`${styles[`h${level}`]} ${className}`}>{children}</Tag>;
+}
+
+/* src/components/motion/LayeredRevealGroup.tsx */
+interface LayeredRevealProps {
+  children: React.ReactNode;
+  stagger?: number;
+  direction?: "up" | "down" | "left" | "right" | "none";
+  className?: string;
 }
