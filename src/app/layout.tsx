@@ -1,5 +1,6 @@
+/* src/app/layout.tsx */
 import { Public_Sans, JetBrains_Mono } from "next/font/google";
-import { Atmosphere } from "@/components/visualization/Atmosphere"; // Import the agent
+import { Atmosphere } from "@/components/visualization/Atmosphere"; 
 import "./globals.css";
 
 const sans = Public_Sans({ 
@@ -19,9 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${sans.variable} ${mono.variable}`}
       suppressHydrationWarning 
     >
-      <body className="bg-slate-950 text-slate-100 antialiased">
+      <body className="antialiased selection:bg-cyan-500/30">
         {/* Global Atmospheric Layers */}
         <Atmosphere />
+        
+        {/* Decorative Framing */}
+        <div className="ui-brackets" />
         
         {/* Main Content Stage */}
         <main className="main-stage">

@@ -1,32 +1,44 @@
 /* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  /* ... your existing variables */
-  --grid-major: rgba(34, 211, 238, 0.08); /* Calm Cyan */
+  /* Noir / Research Lab Color Palette */
+  --page-background: #020617; /* slate-950 */
+  --text-primary: #f8fafc;    /* slate-50 */
+  --accent: #22d3ee;          /* Calm Cyan */
+  --rule: rgba(34, 211, 238, 0.1);
+  --grid-major: rgba(34, 211, 238, 0.08);
   --grid-minor: rgba(34, 211, 238, 0.03);
+  --space-1x: 1.5rem;
 }
 
-/* AUDIT FIX: Replaces .app-overlay with professional blueprint logic */
+/* AUDIT FIX: Lock the background and text color */
+body {
+  background-color: var(--page-background);
+  color: var(--text-primary);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Blueprint Grid Layer */
 .blueprint-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 5;
-  
-  /* Overlapping grids for depth: 40px major and 10px minor */
   background-image: 
     linear-gradient(var(--grid-major) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
     linear-gradient(var(--grid-minor) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
   background-size: 40px 40px, 40px 40px, 10px 10px, 10px 10px;
-  
-  /* Soft center-focus mask */
   mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
   opacity: 0.6;
 }
 
-/* Atmospheric Noise (Film Grain) for texture */
+/* Atmosphere Texture */
 .noise-layer {
   position: fixed;
   inset: 0;
@@ -37,29 +49,30 @@
   opacity: 0.03;
 }
 
-/* Container to ensure content sits above the atmosphere */
 .main-stage {
   position: relative;
   z-index: 10;
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 4rem var(--space-1x);
 }
 
+/* AI Vision Framing Brackets */
 .ui-brackets {
   position: fixed;
-  inset: var(--space-1x);
+  inset: 1.5rem;
   pointer-events: none;
-  z-index: 50; /* Above all content */
-  border: 1px solid transparent;
+  z-index: 50;
 }
 
-/* Creating the L-shaped corner indicators */
 .ui-brackets::before, .ui-brackets::after {
   content: "";
   position: absolute;
   width: 20px;
   height: 20px;
-  border-color: var(--accent); /* Calm Cyan */
+  border-color: var(--accent);
   border-style: solid;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .ui-brackets::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
