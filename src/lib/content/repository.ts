@@ -6,7 +6,7 @@ import { PageFrontmatterSchema, type PageFrontmatter } from "./schema";
 
 /**
  * Data interface for all site content.
- * Exported locally to resolve schema/repository circular dependencies.
+ * Exported locally to resolve circular dependencies.
  */
 export interface PageData {
   slug: string;
@@ -18,8 +18,8 @@ export class ContentRepository {
   private baseDir: string;
 
   constructor(baseDir: string) {
-    /** * AUDIT FIX: Use path.resolve to prevent path-doubling in Linux runners.
-     * Ensures the repository can find content/ files during static export.
+    /** * AUDIT FIX: Use path.resolve(process.cwd()) to ensure absolute paths.
+     * This prevents ENOENT errors during GitHub Actions static export.
      */
     this.baseDir = path.resolve(process.cwd(), baseDir);
   }
@@ -28,13 +28,12 @@ export class ContentRepository {
     const filePath = path.join(this.baseDir, `${slug}.md`);
     const fileContent = await fs.readFile(filePath, "utf8");
     
-    /** * AUDIT FIX: matter() splits the YAML frontmatter (data) from the body (content).
-     * This prevents frontmatter keys like 'title' or 'layout' from leaking into the body text.
+    /** * AUDIT FIX: matter() separates the YAML metadata from the body content.
+     * This resolves the 'frontmatter leak' where title/layout keys appeared in the body.
      */
     const { data, content } = matter(fileContent);
     const frontmatter = PageFrontmatterSchema.parse(data);
     
-    // Return only the narrative content for rendering
     return { slug, frontmatter, content };
   }
 

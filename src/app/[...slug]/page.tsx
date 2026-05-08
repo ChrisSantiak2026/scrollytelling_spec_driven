@@ -15,18 +15,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function DynamicPage({ 
-  params 
-}: { 
-  params: Promise<{ slug: string[] }> 
-}) {
+/* Corrected Logic for src/app/[...slug]/page.tsx */
+export default async function DynamicPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const slugPath = slug.join("/");
   
+  // Fetch data first
   const page = await getPagesRepo().getPageBySlug(slugPath).catch(() => null);
 
   if (!page) {
-    notFound();
+    notFound(); // Triggers 404 outside of try/catch
   }
 
   return <PageLayoutFactory page={page} />;
