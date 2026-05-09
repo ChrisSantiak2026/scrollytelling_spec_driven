@@ -27,17 +27,38 @@ AI Forward Engineering is not a single job; it is a multi-disciplinary approach 
 
 ---
 
-# 01 // AI Orchestration & Agentic Architect
-## Building the Brain, Not Just the Model.
+# 01 // AI Orchestration Engineer
+## Designing Agentic Decision Matrices.
 
-The industry is moving beyond "Chat" and toward **Autonomous Agents**. As an Agentic Architect, my role involves designing the high-stakes logic loops that allow LLMs to interact with real-world databases, APIs, and file systems with near-zero hallucination.
+The future of engineering is shifting from prompt-based interactions to **Agentic Orchestration**. I am targeting roles focused on building the "middleware" of AI—the logic layers that connect large language models to sensitive enterprise data.
 
-* **The Objective**: Orchestrating multi-agent systems where "Critic" agents audit the output of "Worker" agents in real-time.
-* **Forward Strategy**: Implementing **RAG (Retrieval-Augmented Generation)** pipelines that prioritize technical accuracy over creative prose, specifically for legal or medical diagnostics.
+* **Target Industry**: Fintech, Legal-Tech, and Enterprise SaaS.
+* **Core Competencies**: Developing RAG (Retrieval-Augmented Generation) pipelines that utilize vector databases to eliminate hallucination.
+* **Forward Vision**: Moving beyond basic automation toward systems that can perform complex "Critical Audits" of their own logic.
 
 ```stat-grid
-Logic Loops | Infrastructure
-Agentic RAG | Orchestration
-99.9% | Data Fidelity
+99.9% | Decision Accuracy
+< 100ms | Orchestration Lag
+Vector | Data Architecture
+``` 
 
 ---
+
+
+# 02 // Immersive Technical Architect
+## Engineering the Narrative Layer of Software.
+Modern technical products often fail because they are too complex to communicate. I am pursuing roles that bridge the gap between Software Engineering and Immersive Storytelling, using web technologies to build technical archives that users can "inhabit".
+
+* **Target Industry**: High-end Creative Agencies, EdTech, and Developer Relations. 
+* **Core Competencies**: Mastery of Next.js, Framer Motion, and Tailwind CSS to create scroll-synchronized data visualizations.
+* **Forward Vision**  : Establishing "Scrollytelling" as the global standard for complex technical documentation.
+
+---
+
+# 03 //   f UX Automation Auditor
+## Ethical Oversight for the Middle-Class Workforce.
+The most critical role of the coming decade is ensuring that AI serves to augment, rather than replace, human potential. I am seeking roles focused on the UX Audit of automated systems, using research-backed design to keep humans in the loop.
+
+* **Target Industry**: Tech Ethics Boards, Government Research Labs, and UX Consultancies.
+* **Core Competencies** : Conducting Contextual Inquiries and Cognitive Walkthroughs to identify where automation causes friction or job displacement.
+* **Forward Vision**: Developing the "Aesthetic of Transparency"—a design language that makes AI logic visible and accountable to the end-user.
