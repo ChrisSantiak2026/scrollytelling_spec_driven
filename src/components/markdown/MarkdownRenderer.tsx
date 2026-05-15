@@ -6,7 +6,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StatGrid } from "@/components/visualization/StatGrid";
 import { ScrollDemo } from "@/components/visualization/ScrollDemo";
-import styles from "./MarkdownRenderer.module.css"; // AUDIT FIX: Import themed styles
+import styles from "./MarkdownRenderer.module.css";
 
 interface MDXProps {
   children?: React.ReactNode;
@@ -17,7 +17,19 @@ interface MDXProps {
 const components = {
   h1: (props: MDXProps) => <Reveal direction="none"><Heading level={1} {...props} /></Reveal>,
   h2: (props: MDXProps) => <Reveal direction="up"><Heading level={2} {...props} /></Reveal>,
-  // AUDIT FIX: Styled overrides for standard Markdown elements
+  
+  // AUDIT FIX: Catch rogue images and apply responsive constraints
+  img: ({ src, alt }: { src?: string; alt?: string }) => (
+    <div className={styles.imageWrapper}>
+      <img 
+        src={src} 
+        alt={alt} 
+        className={styles.responsiveImage} 
+        loading="lazy" 
+      />
+    </div>
+  ),
+
   p: (props: MDXProps) => <p className={styles.paragraph} {...props} />,
   ul: (props: MDXProps) => <ul className={styles.list} {...props} />,
   li: (props: MDXProps) => <li className={styles.listItem} {...props} />,

@@ -1,6 +1,6 @@
 ---
-title: /The AI-Forward Engineer/
-layout: "standard"
+title: "Career Horizons: AI Forward Engineering"
+layout: "presentation"
 ---
 
 # Chris Santiak
@@ -15,8 +15,7 @@ This archive serves as an example of not only scrollytelling, but a in dpeth vie
 Within the ever evolving technical world, there is an ever growing need for devlopers and AI engineers, for this reason, this website is aimed to showcase my working abilities to any futur employer that wishes to view my past works or the future wrks that i have planned to show off.
 
 ---
-title: "Career Horizons: AI Forward Engineering"
-layout: "standard"
+
 
 ---
 
@@ -63,11 +62,6 @@ The most critical role of the coming decade is ensuring that AI serves to augmen
 * **Core Competencies** : Conducting Contextual Inquiries and Cognitive Walkthroughs to identify where automation causes friction or job displacement.
 * **Forward Vision**: Developing the "Aesthetic of Transparency"—a design language that makes AI logic visible and accountable to the end-user.
 
----
-
----
-title: "The Archive: AI Forward Engineering Projects"
-layout: "standard"
 ---
 
 # Technical Portfolio
