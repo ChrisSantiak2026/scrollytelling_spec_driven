@@ -6,25 +6,19 @@ import { notFound } from "next/navigation";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const repo = getPagesRepo();
-  const slugs = await repo.getAllSlugs();
-  
-  // AUDIT FIX: Ensure slug is always an array for catch-all routes.
-  return slugs.map((slug) => ({
-    slug: slug.split("/"),
-  }));
+  const slugs = await getPagesRepo().getAllSlugs();
+  return slugs.map((slug) => ({ slug: slug.split("/") }));
 }
 
-/* Corrected Logic for src/app/[...slug]/page.tsx */
 export default async function DynamicPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const slugPath = slug.join("/");
   
-  // Fetch data first
+  // AUDIT FIX: Construct logic outside the return statement
   const page = await getPagesRepo().getPageBySlug(slugPath).catch(() => null);
 
   if (!page) {
-    notFound(); // Triggers 404 outside of try/catch
+    notFound(); // Clean 404 for missing technical specs
   }
 
   return <PageLayoutFactory page={page} />;

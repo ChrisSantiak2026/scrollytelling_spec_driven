@@ -9,14 +9,13 @@ describe("ContentRepository", () => {
   let tempDir: string;
   let repo: ContentRepository;
 
-  beforeEach(() => {
-    // Create a unique temporary directory for each test run
-    tempDir = path.join(os.tmpdir(), `scrolly-test-${Date.now()}`);
-    fs.mkdirSync(tempDir, { recursive: true });
-    
-    // Initialize repo targeting the temp directory
-    repo = new ContentRepository(tempDir);
-  });
+/* tests/unit/repository.test.ts snippet */
+beforeEach(() => {
+  tempDir = path.join(os.tmpdir(), `scrolly-test-${Date.now()}`);
+  // AUDIT FIX: Ensure directory exists recursively for Linux environments
+  fs.mkdirSync(tempDir, { recursive: true });
+  repo = new ContentRepository(tempDir);
+});
 
   afterEach(() => {
     // Clean up to prevent storage bloat in CI
