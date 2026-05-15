@@ -1,6 +1,6 @@
 ---
 title: "Career Horizons: AI Forward Engineering"
-layout: "presentation"
+layout: "standard"
 ---
 
 # /The AI-Forward Engineer/
@@ -15,9 +15,6 @@ This archive serves as an example of not only scrollytelling, but a in dpeth vie
 # Architecture & Intent
 
 Within the ever evolving technical world, there is an ever growing need for devlopers and AI engineers, for this reason, this website is aimed to showcase my working abilities to any futur employer that wishes to view my past works or the future wrks that i have planned to show off.
-
----
-
 
 ---
 

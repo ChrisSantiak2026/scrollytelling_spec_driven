@@ -24,16 +24,6 @@
   letter-spacing: 0.2em;
   opacity: 0.8;
 }
-
-/* src/components/layouts/PresentationLayout.module.css */
-
-.slide {
-  display: flex;
-  min-height: 100vh; /* Slide takes up exactly one viewport height */
-  width: 100%;
-  border-bottom: 1px solid var(--rule);
-}
-
 .textContainer {
   flex: 1;
   padding: 10vh 5vw;
@@ -43,13 +33,22 @@
   z-index: 20;
 }
 
+.slide {
+  display: flex;
+  /* AUDIT FIX: Changed from 100vh to auto to remove massive empty gaps */
+  min-height: auto; 
+  padding: 10vh 0; /* Provides consistent 'breathing room' without the void */
+  width: 100%;
+  border-bottom: 1px solid var(--rule);
+}
+
 .imageContainer {
-  flex: 1.2; /* Slightly wider than text for visual impact */
+  flex: 1.2;
   position: sticky;
   top: 0;
-  height: 100vh; /* Image is locked to the viewport height */
+  /* AUDIT FIX: Ensure the image container doesn't force a giant height */
+  height: 80vh; 
   overflow: hidden;
-  background: var(--page-background);
 }
 
 .imageContainer img {
