@@ -11,8 +11,8 @@ Single source of truth for phase state. Update on every phase completion.
 | 04 | Motion primitives | ✅ done | Scrollytelling engine implemented via framer-motion with sticky-scroll triggers. |
 | 05 | Presentation layout | ✅ done | Professional 'Research Lab' layout verified with responsive navigation. |
 | 06 | Visualizations | ✅ done  | Had introduced and executed the proper background mechaines for eye catching visuals |
-| 07 | CI + deploy hardening | 🔨 current | Now neganging in finalizing the content on my page for my website.|
-| 08 | Content authoring pass | ⏳ pending | — |
+| 07 | CI + deploy hardening | ✅ done | Secured all the roadblocks fro my code and now finaized all the specifications.|
+| 08 | Content authoring pass | ✅ done | Now have finalized all the ifner details of the site ensruing everything is consistent and valid |
 
 ## Legend
 

@@ -12,9 +12,12 @@ This archive serves as an example of not only scrollytelling, but a in dpeth vie
 
 ---
 
-# Architecture & Intent
+# Section 1: Architecture & Intent (The "Why")
+Solving the Problem of Data Opacity
+The primary challenge of the current automation era is the "Black Box" problem. As AI systems become more complex, they become less legible to the humans who operate them. I solve this through Spec-Driven Narrative Design—a methodology where every line of code is mapped to a visual "scrollytelling" experience. This ensures that high-stakes technical logic is not just deployed, but lived and understood by stakeholders.
 
-Within the ever evolving technical world, there is an ever growing need for devlopers and AI engineers, for this reason, this website is aimed to showcase my working abilities to any futur employer that wishes to view my past works or the future wrks that i have planned to show off.
+Intentional Methodology
+My choice of a Noir Gallery aesthetic is a deliberate professional decision. In a field often cluttered with generic, "friendly" AI tropes, I utilize high-contrast, low-light visual environments to signal Technical Gravity and Rigor. Every cyan blueprint line and monospace character is an intentional signal that the viewer is entering a serious technical instrument.
 
 ---
 
@@ -22,6 +25,14 @@ Within the ever evolving technical world, there is an ever growing need for devl
 ## Defining the Roles of an AI Forward Engineer.
 
 AI Forward Engineering is not a single job; it is a multi-disciplinary approach to the next generation of technical infrastructure. As a specialist in **Spec-Driven Development** and **Agentic Architectures**, I operate at the intersection of four critical industry domains.
+
+I target the "Middleware" of the AI industry—the orchestration layer where Large Language Models (LLMs) are connected to enterprise-grade data.
+
+The Workflow: I implement Retrieval-Augmented Generation (RAG) systems that treat Markdown as the "Source of Truth," ensuring that AI-generated narratives are always anchored to verifiable primary sources.
+
+The Goal: To eliminate the friction between automated decision-making and human oversight in Fintech and Legal sectors.
+
+When it comes to the jobs i am after, there are keen ones that I aim to target.
 
 ---
 
@@ -73,7 +84,7 @@ As an **AI Forward Engineer**, my work focuses on creating systems that do more 
 # 01 // The Unseen Archive: Semantic Discovery
 ## AI-Driven Knowledge Graphs for Historical Mysteries.
 
-![split](https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=2074)
+![split](https://images.unsplash.com/photo-1444723121867-7a241cacace9?q=80&w=2070)
 
 Building upon a Noir Gallery aesthetic, this project transitions from a static digital museum into a semantic knowledge base. By applying **Natural Language Processing (NLP)** to historical cold cases like the *Dyatlov Pass* and *Hinterkaifeck*, the system identifies cross-document correlations that human auditors might overlook.
 
@@ -114,3 +125,9 @@ Standard Dev | 0.042 oz
 Variance | 0.0017 oz
 Audit Pass | 100%
 ```
+
+---
+
+# Why I am a Future-Facing Candidate
+
+I believe that the next generation of software will not be "used," it will be "briefed". By mastering the narrative layer of AI engineering, I provide the transparency and rigor that the industry currently lacks. This archive is my proof of concept for that future. Making sure that I hstay ahead of the curve eis pivotal if i am to survive in the ever changing digitla landscape. For this reason, this portfoli stands as testament to my abiiities.
